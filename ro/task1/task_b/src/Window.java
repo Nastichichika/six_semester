@@ -10,7 +10,6 @@ public class Window extends JFrame
     {
         super("Task1_b");
 
-        //Semaphore semaphore = new Semaphore(1);
         AtomicInteger semaphore = new AtomicInteger(0);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,7 +41,7 @@ public class Window extends JFrame
                     if(semaphore.compareAndSet(0,1)) {
                         Thread thread1 = new Thread(new MyThread(slider1, true, semaphore),"MyThread");
                         thread1.start();
-                        thread1.setPriority(1);
+                        thread1.setPriority(Thread.MIN_PRIORITY);
                     }
                     else {
                         JOptionPane.showMessageDialog(contents, "Занято потоком");
@@ -54,7 +53,7 @@ public class Window extends JFrame
                     if(semaphore.compareAndSet(0,2)) {
                         Thread thread2 = new Thread(new MyThread(slider1, false, semaphore), "MyThread");
                         thread2.start();
-                        thread2.setPriority(1);
+                        thread2.setPriority(Thread.MAX_PRIORITY);
                     }
                     else {
                         JOptionPane.showMessageDialog(contents, "Занято потоком");
