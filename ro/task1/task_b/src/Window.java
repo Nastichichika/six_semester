@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Window extends JFrame
 {
+    private static Thread thread1;
+    private static Thread thread2;
     private static MySlider slider1 = new MySlider(10, 90, 50);
     public Window()
     {
@@ -39,7 +40,7 @@ public class Window extends JFrame
         start1.addActionListener(
                 e ->{
                     if(semaphore.compareAndSet(0,1)) {
-                        Thread thread1 = new Thread(new MyThread(slider1, true, semaphore),"MyThread");
+                        thread1 = new Thread(new MyThread(slider1, true),"MyThread");
                         thread1.start();
                         thread1.setPriority(Thread.MIN_PRIORITY);
                     }
@@ -51,7 +52,7 @@ public class Window extends JFrame
         start2.addActionListener(
                 e -> {
                     if(semaphore.compareAndSet(0,2)) {
-                        Thread thread2 = new Thread(new MyThread(slider1, false, semaphore), "MyThread");
+                        thread2 = new Thread(new MyThread(slider1, false), "MyThread");
                         thread2.start();
                         thread2.setPriority(Thread.MAX_PRIORITY);
                     }
@@ -62,13 +63,16 @@ public class Window extends JFrame
 
         stop1.addActionListener(
                 e -> {
-                    semaphore.compareAndSet(1,0);
+                    if(semaphore.compareAndSet(1,0)) {
+                        thread1.interrupt();
+                    }
         });
 
         stop2.addActionListener(
                 e -> {
-
-                    semaphore.compareAndSet(2,0);
+                    if( semaphore.compareAndSet(2,0)) {
+                        thread2.interrupt();
+                    }
         });
         setSize(330, 170);
         setVisible(true);
