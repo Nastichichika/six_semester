@@ -63,15 +63,17 @@ public class Window extends JFrame
 
         stop1.addActionListener(
                 e -> {
-                    if(semaphore.compareAndSet(1,0)) {
+                    if(semaphore.compareAndSet(1,1)) {
                         thread1.interrupt();
+                        semaphore.compareAndSet(1,0);
                     }
         });
 
         stop2.addActionListener(
                 e -> {
-                    if( semaphore.compareAndSet(2,0)) {
+                    if(semaphore.compareAndSet(2,2)) {
                         thread2.interrupt();
+                        semaphore.compareAndSet(2,0);
                     }
         });
         setSize(330, 170);
