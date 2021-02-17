@@ -18,7 +18,7 @@ public class Fight extends RecursiveTask<Monk> {
         if (end - start < 3) {
             //System.out.println(start + " " + end);
             //System.out.println(start + " " + monks.get(start).power);
-            //System.out.println(maxPower(monks.get(start), monks.get(start+1)).power);
+
             return maxPower(monks.get(start), monks.get(start+1));
         }
 
@@ -32,20 +32,26 @@ public class Fight extends RecursiveTask<Monk> {
         Monk q = (Monk)right.join();
         Monk w = (Monk) left.join();
 
-        System.out.println(q.power + " + " + w.power);
+        //System.out.println(q.power + " + " + w.power);
         return maxPower(q, w);
     }
     public Monk maxPower(Monk monk1, Monk monk2) {
 
         if(monk1.power > monk2.power) {
             synchronized (monk1){
-                monk1.addVictory();
+                if(monk1.temple != monk2.temple) {
+                    monk1.addVictory();
+                }
+                //System.out.println(monk1.temple + " & " + monk2.temple + " + " + monk1.countOfVictory);
             }
             return monk1;
         }
         else{
             synchronized (monk2){
-                monk1.addVictory();
+                if(monk1.temple != monk2.temple) {
+                    monk2.addVictory();
+                }
+                ///System.out.println(monk1.temple + " & " + monk2.temple + " + " + monk1.countOfVictory);
             }
             return monk2;
         }
