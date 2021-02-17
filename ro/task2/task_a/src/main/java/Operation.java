@@ -19,25 +19,21 @@ public class Operation implements Runnable{
     @Override
     public void run() {
 
-        try {
-            Thread.sleep(300 * (teem_number - 1));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if(bear.compareAndSet(true,true)) {
-            System.out.println("Bear caught, let's go to rest: teem " + teem_number);
-            return;
-        }
-        int length = area.get(0).size();
-        for (int i = start; i < end; i++) {
+        for(int i = start; i < end; i++) {
+            if (bear.compareAndSet(true, true)) {
+                System.out.println("Bear caught:( teem " + teem_number);
+                return;
+            }
+            int length = area.get(0).size();
             for (int j = 0; j < length; j++) {
-                if(area.get(i).get(j) == 1) {
+                if (area.get(i).get(j) == 1) {
                     bear.set(true);
-                    System.out.println("We found: teem " + teem_number);
+                    System.out.println("We found:) teem " + teem_number);
                     return;
                 }
             }
+
+            System.out.println("We didn't find :.( teem " + teem_number);
         }
-        System.out.println("We didn't find and went to rest: teem " + teem_number);
     }
 }

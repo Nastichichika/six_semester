@@ -25,7 +25,8 @@ public class Beehive {
             }
             command[i] = new Thread(new Operation(forrest, start, end, i + 1, bear));
 
-            command[i].start();
+        }
+        for(int i = 0; i < NUMBER_OF_THREAD; i++) { command[i].start();
         }
     }
 }
