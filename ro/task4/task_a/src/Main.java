@@ -3,7 +3,8 @@ public class Main {
         File file = new File();
         Thread findPhone = new Thread(new Program(file, 1, "Anastasiia"));
         Thread findName = new Thread(new Program(file, 2, "0994586312"));
-        Thread addDelete = new Thread(new Program(file, 3, ""));
+        Thread addDelete = new Thread(new Program(file, 3, ""
+        ));
 
         findPhone.setDaemon(true);
         findName.setDaemon(true);
