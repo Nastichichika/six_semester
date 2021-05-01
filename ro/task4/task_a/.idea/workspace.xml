@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf9c8fa-c279-4b5c-b2f8-71a8e5495c5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../task4_/src/File.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task4_/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task4_/src/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task4_/src/Record.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_b/main/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_c/src/CustomReadWriteLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_c/src/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_c/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_c/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +76,7 @@
       <workItem from="1615365038601" duration="1641000" />
       <workItem from="1615393880327" duration="2474000" />
       <workItem from="1616971682445" duration="623000" />
+      <workItem from="1617003057512" duration="690000" />
     </task>
     <servers />
   </component>
