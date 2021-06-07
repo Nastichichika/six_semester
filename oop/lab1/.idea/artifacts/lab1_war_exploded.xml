@@ -18,6 +18,16 @@
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.2.18" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.1" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.0" />
+          <element id="library" level="project" name="Maven: org.json:json:20210307" />
+          <element id="library" level="project" name="Maven: org.opendaylight.controller.thirdparty:org.apache.catalina.filters.CorsFilter:7.0.42" />
+          <element id="library" level="project" name="Maven: equinoxSDK381:javax.servlet:3.0.0.v201112011016" />
+          <element id="library" level="project" name="Maven: orbit:org.apache.juli.extras:7.0.32.v201211081135" />
+          <element id="library" level="project" name="Maven: orbit:org.apache.tomcat.util:7.0.32.v201211201952" />
+          <element id="library" level="project" name="Maven: orbit:org.apache.catalina:7.0.32.v201211201336" />
         </element>
       </element>
       <element id="directory" name="META-INF">

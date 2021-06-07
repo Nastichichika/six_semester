@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbonentDAO {
-    public static boolean validate(String name,String pass){
-        boolean status=false;
+    public static Abonent validate(String name,String pass){
+        Abonent status = null;
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -16,14 +16,17 @@ public class AbonentDAO {
         }
         try(Connection con  = DriverManager.getConnection(
                 "jdbc:postgresql://127.0.0.1:5432/telephone_company", "postgres", "Fjgh2809")) {
-            PreparedStatement ps=con.prepareStatement(
-                    "select * from abonent where login=? and password=?");
-            ps.setString(1,name);
-            ps.setString(2,pass);
+            ResultSet rs;
+            try (PreparedStatement ps = con.prepareStatement(
+                    "select * from abonent where login=? and password=?")) {
+                ps.setString(1, name);
+                ps.setString(2, pass);
 
-            ResultSet rs=ps.executeQuery();
-            if (rs.next()) status = true;
-            else status = false;
+                rs = ps.executeQuery();
+            }
+            if (rs.next()) {
+                status = getAbonentFromResultSet(rs);
+            }
         } catch (SQLException io) {
             io.printStackTrace();
         }
